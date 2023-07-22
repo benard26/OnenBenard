@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:convert';
 
 void main() {
   //No.1
@@ -26,4 +26,34 @@ void main() {
   print(sort);
 
   //No.5
+  String multipleWords = "My name is Onen Benard";
+  List words = multipleWords.split(" ");
+  List reversedWords = words.reversed.toList();
+  String reversedString = reversedWords.join(" ");
+  print(reversedString);
+
+  //No.6
+  List any = [1, 2, 3, 5, 5, 5, 6, 6, 7, 7];
+  print(any.toSet().toList());
+
+  //No.7
+  final jsonData = '''
+    {
+      "May": [3, 5],
+      "November": [2],
+      "December": [1, 4, 2]
+    }
+  ''';
+  //part a
+  final birthMonths = json.decode(jsonData);
+  List months = birthMonths.keys.toList();
+  print(months);
+
+  //part b
+  final How_many = json.decode(jsonData);
+  List figures = How_many.values.toList();
+  print(figures);
+
+  //part c
+  //failed to achieve what was asked
 }
