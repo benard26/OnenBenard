@@ -50,10 +50,19 @@ void main() {
   print(months);
 
   //part b
-  final How_many = json.decode(jsonData);
-  List figures = How_many.values.toList();
-  print(figures);
+  Map<String, int> monthCounts = {};
+  birthMonths.forEach((key, value) {
+    monthCounts[key] = value.length;
+  });
+  print("Number of birthdays in each month are below");
+  print(monthCounts);
 
   //part c
-  //failed to achieve what was asked
+  var sortedMonths = monthCounts.entries.toList()
+    ..sort((a, b) => a.value.compareTo(b.value));
+  var monthWithLowestBirthdays = sortedMonths.first.key;
+  var monthWithHighestBirthdays = sortedMonths.last.key;
+
+  print("Month with the most birthdays is $monthWithHighestBirthdays");
+  print("Month with the least birthdays is $monthWithLowestBirthdays");
 }
